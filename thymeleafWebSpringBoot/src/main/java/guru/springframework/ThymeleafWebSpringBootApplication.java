@@ -8,6 +8,7 @@ import guru.springframework.controllers.ConstructorInjectedController;
 import guru.springframework.controllers.MyController;
 import guru.springframework.controllers.PropertyInjectedController;
 import guru.springframework.controllers.SetterInjectedController;
+import guru.springframework.examplebeans.FakeDataSource;
 
 @SpringBootApplication
 public class ThymeleafWebSpringBootApplication {
@@ -18,9 +19,13 @@ public class ThymeleafWebSpringBootApplication {
 		MyController controller = (MyController) ctx.getBean("myController");
 		
 		
-		System.out.println(controller.hello());
-		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+//		System.out.println(controller.hello());
+//		System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+//		System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
+//		System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+		
+		FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+		
+		System.out.println(fakeDataSource.getUser());
 	}
 }
